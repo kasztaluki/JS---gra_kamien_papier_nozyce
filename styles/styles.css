@@ -1,0 +1,10 @@
+.container {
+    background-color: #0F4C81;
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+.text-center {
+    height: 50%;
+    text-align: center;
+}
