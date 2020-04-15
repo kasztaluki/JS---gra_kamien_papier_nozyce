@@ -1,6 +1,8 @@
-var newGameBtn = document.getElementById('js-newGameButton');
+var newGameBtn = document.getElementById('js-newGameButton'),
+    closeGameBtn = document.getElementById('js-closeGameButton');
 
 newGameBtn.addEventListener('click', newGame);
+closeGameBtn.addEventListener('click', closeGame);
 
 var pickRock = document.getElementById('js-playerPick_rock'),
      pickPaper = document.getElementById('js-playerPick_paper'),
@@ -21,20 +23,30 @@ var gameState = 'notStarted',  //started // ended
     
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
-    resultsElem = document.getElementById('js-resultsTableElement');
+    resultsElem = document.getElementById('js-resultsTableElement'),
+    closeGameElem = document.getElementById('js-closeGameElement');
     
 function setGameElements() {
   switch(gameState) {
     case 'started':
         newGameElem.style.display = 'none';
+        closeGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
       break;
     case 'ended':
-        newGameBtn.innerText = 'Jeszcze raz';
+        newGameElem.style.display = 'inline-block';
+        newGameBtn.innerText = 'Play again';
+        closeGameElem.style.display = 'inline-block';
+        closeGameBtn.innerText = 'Game over';
+        pickElem.style.display = 'none';
+        resultsElem.style.display = 'none';
+        break;
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
+        newGameBtn.innerText = 'New game';
+        closeGameElem.style.display = 'none';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
   }
@@ -55,6 +67,11 @@ function newGame() {
     playerNameElem.innerHTML = player.name;
     setGamePoints();
   }
+}
+
+function closeGame() {
+    gameState = 'notStarted';
+    setGameElements();
 }
 
 function playerPick(playerPick) {
@@ -120,13 +137,13 @@ function setGamePoints() {
 }
 
 function gameOver() {
-    if (player.score == 10) {
-        alert ('Congrats! ' + playerNameElem.innerHTML + ', you win!');
+    if (player.score == 5) {
+        alert ('Congrats! ' + playerNameElem.innerHTML + ', you are the WINNER!');
         gameState = 'ended';
         setGameElements();
     } 
-    else if (computer.score == 10) {
-        alert ('Upsss...computer win!');
+    else if (computer.score == 5) {
+        alert ('Upsss...the WINNER is computer!');
         gameState = 'ended';
         setGameElements();
     }

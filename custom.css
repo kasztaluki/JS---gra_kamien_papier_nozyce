@@ -1,0 +1,53 @@
+.container {
+    background-color: #0F4C81 !important;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+}
+.welcome {
+    margin: 25px;
+    color: #fff;
+    font-size: 64px;
+    font-weight: 700;
+    padding: 25px;
+}
+.title span {
+    font-size: 28px;
+}
+.label {
+        border-radius: 3px;
+}
+.btn {
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+}
+.choice {
+    border-radius: 5px;
+}
+.start-game-btn {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+.btn-game {
+    margin: 5px;
+}
+.badge {
+    border-radius: 0%;
+    background-color: goldenrod;
+    font-size: 22px;
+}
+.fa {
+    font-size: 26px;
+}
+.vs {
+    padding: 15px;
+}
+.text-center button {
+    background-color: goldenrod;
+}
+.text-center {
+    text-align: center;
+    color: floralwhite;
+}
